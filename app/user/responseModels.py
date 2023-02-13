@@ -5,7 +5,7 @@ class ShowUser(BaseModel):
     name: str
     email: str
     contact_no: int
-    pic: str
+    location: str
 
     class Config():
         orm_mode = True

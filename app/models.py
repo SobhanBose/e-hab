@@ -1,7 +1,7 @@
 from app.utils.database import Base
 from sqlalchemy import Column, String, Integer, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy_utils import EmailType
+from sqlalchemy_utils import EmailType, JSONType
 
 
 class User(Base):
@@ -12,4 +12,14 @@ class User(Base):
     name = Column(String, nullable=False)
     email = Column(EmailType, unique=True, nullable=False)
     contact_no = Column(Integer, unique=True, nullable=False)
-    pic = Column(String, nullable=True)
+    location = Column(JSONType, nullable=True)
+
+    facilitator = relationship("Facilitator", back_populates="user")
+
+
+class Facilitator(Base):
+    __tablename__ = 'facilitators'
+
+    username = Column(String, ForeignKey("users.username"), primary_key=True)
+
+    user = relationship("User", back_populates="facilitator")
