@@ -13,7 +13,7 @@ router = APIRouter()
 
 @router.post("/login/token", response_model=responseModels.ShowToken)
 def login_access_token(request: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
-    user = db.query(models.User).filter(models.User.username == request.username).first()
+    user = db.query(models.Users).filter(models.Users.username == request.username).first()
     if not user:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="invalid credentials")
     
@@ -30,7 +30,7 @@ def login_access_token(request: OAuth2PasswordRequestForm = Depends(), db: Sessi
 
 @router.post("/forgot_password", response_model=responseModels.ShowToken)
 def generate_password_reset_token(request: schemas.ForgotPassword, db: Session = Depends(get_db)) -> responseModels.ShowToken:
-    user = db.query(models.User).filter(models.User.email == request.email).first()
+    user = db.query(models.Users).filter(models.Users.email == request.email).first()
     if not user:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="invalid credentials")
     

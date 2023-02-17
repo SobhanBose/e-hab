@@ -31,7 +31,7 @@ def verify_access_token(token: str, db, credentials_exception: HTTPException | N
     except JWTError:
         raise credentials_exception
     
-    user = db.query(models.User).filter(models.User.username == token_data.username)
+    user = db.query(models.Users).filter(models.Users.username == token_data.username)
     if not user:
         raise credentials_exception
     if get_user_instance:
