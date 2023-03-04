@@ -5,7 +5,8 @@ class ShowUser(BaseModel):
     name: str
     email: str
     contact_no: int
-    location: str
+    latitude: float
+    longitude: float
 
     class Config():
         orm_mode = True

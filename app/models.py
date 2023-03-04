@@ -1,7 +1,8 @@
 from app.utils.database import Base
-from sqlalchemy import Column, String, Integer, DateTime, ForeignKey
+from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, DECIMAL
 from sqlalchemy.orm import relationship
 from sqlalchemy_utils import EmailType, JSONType
+import geocoder
 
 
 class Users(Base):
@@ -12,7 +13,8 @@ class Users(Base):
     name = Column(String, nullable=False)
     email = Column(EmailType, unique=True, nullable=False)
     contact_no = Column(Integer, unique=True, nullable=False)
-    location = Column(JSONType, nullable=True)
+    latitude = Column(DECIMAL, default=geocoder.ip("me").latlng[0])
+    longitude = Column(DECIMAL, default=geocoder.ip("me").latlng[1])
 
     facilitator = relationship("Facilitators", back_populates="user")
 
