@@ -1,6 +1,6 @@
-from app.support_groups.schemas import supportGroups
+from app.rehab_centres.schemas import rehabCentres
 
-class showSupportGroups(supportGroups):
+class showRehabCentres(rehabCentres):
     name: str
     facilitator: str
     latitude: float

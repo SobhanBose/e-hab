@@ -19,7 +19,7 @@ def create_support_groups(request: schemas.supportGroups, current_user: userSche
     facilitator = db.query(models.Facilitators).filter(models.Facilitators.username == current_user.username).first()
     if not facilitator:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=f"{current_user.username} is not a facilitator")
-    new_sg = models.SupportGroups(name=request.name, contact_email=request.contact_email, contact_no=request.contact_no, location=request.location, facilitator=facilitator.username)
+    new_sg = models.SupportGroups(name=request.name, contact_email=request.contact_email, contact_no=request.contact_no, facilitator=facilitator.username)
     db.add(new_sg)
     db.commit()
     db.refresh(new_sg)

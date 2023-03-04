@@ -48,7 +48,8 @@ class SupportGroups(Base):
     name = Column(String, nullable=False)
     contact_email = Column(EmailType, nullable=False)
     contact_no = Column(Integer, nullable=False)
-    location = Column(JSONType, nullable=False)
+    latitude = Column(DECIMAL, default=geocoder.ip("me").latlng[0])
+    longitude = Column(DECIMAL, default=geocoder.ip("me").latlng[1])
     facilitator = Column(String, ForeignKey("facilitators.username"), nullable=False)
 
     sg_facilitator = relationship("Facilitators", back_populates="support_group")
@@ -62,7 +63,8 @@ class RehabCentres(Base):
     name = Column(String, nullable=False)
     contact_email = Column(EmailType, nullable=False)
     contact_no = Column(Integer, nullable=False)
-    location = Column(JSONType, nullable=False)
+    latitude = Column(DECIMAL, default=geocoder.ip("me").latlng[0])
+    longitude = Column(DECIMAL, default=geocoder.ip("me").latlng[1])
     facilitator = Column(String, ForeignKey("facilitators.username"), nullable=False)
 
     rc_facilitator = relationship("Facilitators", back_populates="rehab_centre")
