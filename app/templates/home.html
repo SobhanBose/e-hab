@@ -1,5 +1,292 @@
-{% extend "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block body %}
-    <h1>HOME</h1>
-{% endblock %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="swidth=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>E-hab</title>
+  <link rel="stylesheet" href="{{url_for('static', path='/styles/home.css')}}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Arimo|Signika" rel="stylesheet">
+  <link rel="shortcut icon" href="https://mbtskoudsalg.com/images/diamond-doodle-png.png">
+</head>
+
+<body>
+  <header id='home'>
+    <nav class=" transparent ">
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo center">
+          <img src="https://mbtskoudsalg.com/images/diamond-doodle-png.png" alt="logo" height="64" width="64">
+        </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li class='hvr-underline'><a href="{{url_for('login')}}">Sign In</a></li>
+          <li class='hvr-underline'><a href="{{url_for('register')}}">Sign Up</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="#">Sign In</a></li>
+      <li><a href="#">Sign Up</a></li>
+    </ul>
+
+    <div class="welcome-text valign-wrapper">
+      <div class="white-text center-align welcome">
+        <h3>FIND <b> YOUR SUPPORT SYSTEM</b></h3>
+        <p class="text-darken-5"></p>
+      </div>
+    </div>
+
+  </header>
+  <section id="about" class="valign-wrapper">
+
+    <div class="container black-text text-lighten-4">
+      <div class="row">
+        <div class="col s12 m9 pull-l2">
+          <div class="left-align">
+            <p class="title">WHO IS E-hab?</p>
+            <h4 style="font-weight: bold" class="subtitle">A BIT ABOUT US</h4>
+            <span style="font-weight: 800" class="paratext">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint optio vero odit sapiente impedit maxime excepturi totam quae adipisci, quod reiciendis cupiditate quis, doloribus quia molestias recusandae similique natus veritatis?</span><br>
+            <p class="paratext">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi eos nulla sunt ex aspernatur, doloremque adipisci officiis accusamus numquam qui. Quidem, enim consectetur. Aliquid ea dolor eligendi exercitationem ex culpa! <br><br>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odio deleniti labore obcaecati provident autem non qui error fugiat asperiores nam perferendis, maiores aspernatur minima quis modi beatae quibusdam. Vel.
+            </p>
+            <button class="btn waves-effect waves-light" type="button" style="border-radius: 50px">View More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+  <section class="black center valign-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col l2 m12 s12">
+          <!-- <img src="assets/brand-1.png"> -->
+        </div>
+        <div class="vertical-bar"></div>
+
+        <div class="col l2 m12 s12">
+          <!-- <img src="assets/brand-2.png"> -->
+        </div>
+        <div class="col l2 m12 s12">
+          <!-- <img src="assets/brand-3.png"> -->
+        </div>
+        <div class="col l2 m12 s12">
+          <!-- <img src="assets/brand-4.png"> -->
+        </div>
+        <div class="col l2 m12 s12">
+          <!-- <img src="assets/brand-5.png"> -->
+        </div>
+        <div class="col l2 m12 s12">
+          <!-- <img src="assets/brand-6.png"> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-intro center">
+      <p class="title">WHAT CAN WE DO?</p>
+      <h4 style="font-weight: bold;" class="subtitle">OUR SERVICES</h4>
+      <p style="margin: 20px;" class="paratext">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos obcaecati consequatur modi impedit. Quos illo dignissimos molestiae libero optio, neque sed non placeat facere laudantium saepe eius, iste ex in!
+      </p>
+    </div>
+    <div class="cards">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m6 l4">
+            <div class="card small">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="https://images.pexels.com/photos/8614/painting-black-paint-roller.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+              </div>
+              <div class="card-content">
+                <h4 class="card-title activator grey-text text-darken-4">Find Support Groups<i class="material-icons right">more_vert</i></h4>
+              </div>
+              <div class="card-reveal">
+                <h4 class="card-title grey-text text-darken-4">Find Support Groups<i class="material-icons right">close</i></h4>
+                <p class="black-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt tempore quisquam atque dolor et, quae, quasi debitis enim explicabo rerum eum, vel non eveniet. Qui iusto nam ea tempore beatae?</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card small">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="https://images.pexels.com/photos/1388944/floor-flooring-hand-man-1388944.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+              </div>
+              <div class="card-content">
+                <h4 class="card-title activator grey-text text-darken-4">Find Rehab Centres<i class="material-icons right">more_vert</i></h4>
+              </div>
+              <div class="card-reveal">
+                <h4 class="card-title grey-text text-darken-4">Find Rehab Centres<i class="material-icons right">close</i></h4>
+                <p class="black-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci hic commodi ipsa? Deserunt, ullam suscipit, consequatur soluta, eaque necessitatibus consequuntur iste similique et dignissimos quibusdam? Reprehenderit, repellendus? Recusandae, id explicabo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card small">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="https://images.pexels.com/photos/1531828/pexels-photo-1531828.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+              </div>
+              <div class="card-content">
+                <h4 class="card-title activator grey-text text-darken-4">Get Directions<i class="material-icons right">more_vert</i></h4>
+              </div>
+              <div class="card-reveal">
+                <h4 class="card-title grey-text text-darken-4">Get Directions<i class="material-icons right">close</i></h4>
+                <p class="black-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit aspernatur sequi suscipit quis ad. Temporibus error totam, asperiores quas explicabo eligendi ratione officiis aspernatur aperiam dolor. In explicabo odio nesciunt!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card small">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="https://images.pexels.com/photos/280209/pexels-photo-280209.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+              </div>
+              <div class="card-content">
+                <h4 class="card-title activator grey-text text-darken-4">Register as a Supprot Group<i class="material-icons right">more_vert</i></h4>
+              </div>
+              <div class="card-reveal">
+                <h4 class="card-title grey-text text-darken-4">Register as a Support Group<i class="material-icons right">close</i></h4>
+                <p class="black-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat et error unde eos quis, vel, laborum, dicta commodi iusto perferendis animi. Illum eaque voluptates laborum asperiores totam explicabo quibusdam accusamus.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card small">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="https://images.pexels.com/photos/1027508/pexels-photo-1027508.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+              </div>
+              <div class="card-content">
+                <h4 class="card-title activator grey-text text-darken-4">Register as a Rehab Centre<i class="material-icons right">more_vert</i></h4>
+              </div>
+              <div class="card-reveal">
+                <h4 class="card-title grey-text text-darken-4">Register as a Rehab Centre<i class="material-icons right">close</i></h4>
+                <p class="black-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium atque inventore voluptas nesciunt, pariatur, sapiente necessitatibus distinctio ea nostrum itaque praesentium at rem sunt voluptatem est veritatis repellat quos ex.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 l4">
+            <div class="card small">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="https://images.pexels.com/photos/221027/pexels-photo-221027.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+              </div>
+              <div class="card-content">
+                <h4 class="card-title activator grey-text text-darken-4">Lorem Ipsum<i class="material-icons right">more_vert</i></h4>
+              </div>
+              <div class="card-reveal">
+                <h4 class="card-title grey-text text-darken-4">Lorem Ipsum<i class="material-icons right">close</i></h4>
+                <p class="black-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut in voluptate totam animi non, minus reiciendis possimus ea eum eos. Minus, totam? Cupiditate enim itaque debitis atque eum voluptas quis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <section>
+    <div class="carousel" style="margin-top: -30px">
+      <!-- <a class="carousel-item" href="#one!"><img src="assets/gallery-1.jpg" alt=""></a>
+      <a class="carousel-item" href="#two!"><img src="assets/gallery-2.jpg" alt=""></a>
+      <a class="carousel-item" href="#three!"><img src="assets/gallery-3.jpg" alt=""></a>
+      <a class="carousel-item" href="#four!"><img src="assets/gallery-4.jpg" alt=""></a>
+      <a class="carousel-item" href="#five!"><img src="assets/gallery-5.jpg" alt=""></a>
+      <a class="carousel-item" href="#five!"><img src="assets/gallery-6.jpg" alt=""></a>
+      <a class="carousel-item" href="#five!"><img src="assets/gallery-7.jpg" alt=""></a>
+      <a class="carousel-item" href="#five!"><img src="assets/gallery-8.jpg" alt=""></a> -->
+    </div>
+    <div class="center" style="margin-top: -80px;">
+      <p class="title">WHAT DO PEOPLE SAY?</p>
+      <h4 style="font-weight: bold" class="subtitle">OUR SATISFIED CLIENTS</h4>
+      <p style="margin: 20px;" class="paratext">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos temporibus quisquam maiores consequatur, praesentium, eum nobis ad fugiat, distinctio quod fuga ut facere tempora optio possimus consectetur placeat? Ut, quo!
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col s12 l12">
+          <div class="carousel carousel-slider center" data-indicators="true">
+            <div class="carousel-fixed-item center">
+            </div>
+            <div class="carousel-item" href="#one!">
+              <h2>Sara Doe</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias dolor ducimus
+                doloremque, autem dolores beatae eaque saepe repudiandae veritatis corporis amet deserunt nemo aliquam
+                rerum?</p>
+            </div>
+            <div class="carousel-item " href="#two!">
+
+              <h2>John Doe</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, aliquam quidem
+                quibusdam ad sed totam.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+  <section id="some" class="valign-wrapper white-text">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m8 push-l5">
+          <div class="">
+            <p class="white-text">WHERE ARE WE?</p>
+            <h4 style="font-weight: bold">WE ARE GLOBAL</h4>
+            <span style="font-weight: 800";>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia labore totam dolorem, explicabo ut corrupti reiciendis quidem dolor nihil doloremque animi fugiat perspiciatis, molestiae rem repellat temporibus sint. Eos, enim.</span><br>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, mollitia iusto dolorum modi, numquam possimus hic quod cumque eum assumenda ullam amet corrupti dignissimos doloribus dolore tempora obcaecati enim sint.
+              <br><br>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non sed nisi facere veritatis quam rem, voluptate, illum perferendis eaque repellendus ex officiis rerum commodi reprehenderit? Vel sint inventore dicta minima.
+            </p><br><br>
+            <button class="btn waves-effect waves-light" type="button" style="border-radius: 50px">View More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  
+  <footer class="black white-text center">
+    <div style="padding:30px 0 20px 0;">
+      <h3>Solufix</h3>
+      <ul>
+        <li>
+          <i class="fa fa-facebook"></i>
+        </li>
+
+        <li>
+          <i class="fa fa-instagram"></i>
+        </li>
+
+        <li>
+          <i class="fa fa-twitter"></i>
+        </li>
+        <li>
+          <i class="fa fa-youtube"></i>
+        </li>
+        <li>
+          <i class="fa fa-linkedin"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="grey darken-4" style="padding:30px 0;">
+      &copy; 2023 E-hab. All rights Reserved.
+    </div>
+  </footer>
+  <!-- script tags -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="{{url_for('static', path='/scripts/home.js')}}"></script>
+</body>
+
+</html>

@@ -14,6 +14,7 @@ from app.support_groups import router as support_groups_router
 from app.rehab_centres import router as rehab_centres_router
 
 from app.webapp.router import auth as webapp_auth_router
+from app.webapp.router import home as webapp_home_router
 
 from app.utils import database
 
@@ -27,3 +28,4 @@ app.include_router(support_groups_router.router, tags=["Support Groups"])
 app.include_router(rehab_centres_router.router, tags=["Rehab Centres"])
 
 app.include_router(webapp_auth_router.router)
+app.include_router(webapp_home_router.router)
