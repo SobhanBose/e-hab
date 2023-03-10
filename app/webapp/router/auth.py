@@ -45,7 +45,7 @@ async def login(request: Request, response: Response, db: Session=Depends(get_db
 
 @router.get("/register", response_class=HTMLResponse)
 def register(request: Request):
-    return templates.TemplateResponse("user_reg.html", {"request": request})
+    return templates.TemplateResponse("registration.html", {"request": request})
 
 
 @router.post("/register")

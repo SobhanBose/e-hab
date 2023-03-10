@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 from . import models
 
 app = FastAPI(title="E-hab")
+app.mount("/app/static", StaticFiles(directory="./app/static"), name="static")
 
 # from app.home import router as home_router
 from app.user import router as user_router
