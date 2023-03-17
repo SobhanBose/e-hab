@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="swidth=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>E-hab</title>
+        <link rel="stylesheet" href="{{url_for('static', path='/styles/search.css')}}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Arimo|Signika" rel="stylesheet">
+    </head>
+
+    <body>
+        <header id='home'>
+            <nav class=" transparent ">
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo center">
+                        <img src="https://mbtskoudsalg.com/images/diamond-doodle-png.png" alt="logo" height="64"
+                            width="64">
+                    </a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li class='hvr-underline'><a href="#">Profile</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <ul class="sidenav" id="mobile-demo">
+                <li class='hvr-underline'><a href="#">Profile</a></li>
+            </ul>
+        </header>
+
+        <section class="main-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="collection">
+                            {% for entity in entities %}
+                                <li class="collection-item avatar list-item" style="background-color: transparent">
+                                    <div class="name-banner">
+                                        <i class="material-icons circle">business</i>
+                                        <span class="title">{{entity['name']}}</span>
+                                        <p>{{entity['contact_no']}}</p>
+                                        <p>{{entity['contact_email']}}</p>
+                                    </div>
+                                    <div class="directions">
+                                        <a href="#!" class="secondary-content"><i class="medium material-icons">directions</i></a>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="black white-text center">
+            <div style="padding:30px 0 20px 0;">
+                <h3>E-hab</h3>
+            </div>
+            <div class="grey darken-4" style="padding:30px 0 20px 0;">
+                &copy; 2023 E-hab. All rights Reserved.
+            </div>
+        </footer>
+
+        <!-- scripts -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{{url_for('static', path='/scripts/search.js')}}"></script>
+    </body>
+
+</html>

@@ -1,0 +1,85 @@
+:root {
+    --bg_color: #201e1e;
+    --font_color_primary: #edf3f2;
+    --font_color_accent_1: #4ca878;
+    --font_color_accent_2: #ecac69;
+}
+
+body,
+html {
+    padding: 0;
+    margin: 0;
+}
+
+nav li a {
+    font-family: 'Arima Madurai', cursive;
+}
+
+body {
+    font-family: 'Arimo', sans-serif;
+    background-color: var(--bg_color);
+    color: var(--font_color_primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Signika', cursive;
+}
+
+.hvr-underline {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.hvr-underline:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    bottom: 0;
+    background: rgba(11, 11, 11, 0.3);
+    height: 2px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.hvr-underline:hover:before,
+.hvr-underline:focus:before,
+.hvr-underline:active:before {
+    left: 0;
+    right: 0;
+}
+
+.container {
+    padding-top: 2rem;
+}
+
+.black {
+    max-height: 40px;
+    min-height: 30px
+}
+
+.brand-logo {
+    margin-left: 2rem;
+}
+
+.list-item {
+    background-color: var(--bg_color);
+}
+
+.main-content {
+    min-height: 100vh;
+}

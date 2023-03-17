@@ -12,9 +12,11 @@ from app.auth import router as login_router
 from app.facilitator import router as facilitator_router
 from app.support_groups import router as support_groups_router
 from app.rehab_centres import router as rehab_centres_router
+from app.search_entities import router as search_entities_router
 
 from app.webapp.router import auth as webapp_auth_router
 from app.webapp.router import home as webapp_home_router
+from app.webapp.router import search as webapp_search_router
 
 from app.utils import database
 
@@ -26,6 +28,9 @@ app.include_router(login_router.router, tags=["Auth"])
 app.include_router(facilitator_router.router, tags=["Facilitator"])
 app.include_router(support_groups_router.router, tags=["Support Groups"])
 app.include_router(rehab_centres_router.router, tags=["Rehab Centres"])
+app.include_router(search_entities_router.router, tags=["Search Entities"])
+
 
 app.include_router(webapp_auth_router.router)
 app.include_router(webapp_home_router.router)
+app.include_router(webapp_search_router.router)
