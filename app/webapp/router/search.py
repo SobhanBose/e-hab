@@ -1,15 +1,17 @@
 from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
 import requests, json
+from starlette.datastructures import URL
 
 
 router = APIRouter(include_in_schema=False)
 templates = Jinja2Templates(directory="app\\templates")
+templates.env.globals['URL'] = URL
 
 
 @router.get('/search-all')
 def search_all(request: Request):
-    entities = requests.get("http://localhost:8000/get_entities")
+    entities = requests.get("http://127.0.0.1:8000/get_entities")
     return templates.TemplateResponse("search.html", {"request": request, "entities": entities.json()})
 
 
