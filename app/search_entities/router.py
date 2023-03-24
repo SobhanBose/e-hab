@@ -19,3 +19,21 @@ def get_entities(db: Session = Depends(get_db)) -> List[responseModels.ShowEntit
     entities.extend(list(sg))
 
     return entities
+
+
+@router.get("/get_sg", response_model=List[responseModels.ShowEntity])
+def get_entities(db: Session = Depends(get_db)) -> List[responseModels.ShowEntity]:
+    entities = []
+    sg = db.query(models.SupportGroups).all()
+    entities.extend(list(sg))
+
+    return entities
+
+
+@router.get("/get_rc", response_model=List[responseModels.ShowEntity])
+def get_entities(db: Session = Depends(get_db)) -> List[responseModels.ShowEntity]:
+    entities = []
+    rc = db.query(models.RehabCentres).all()
+    entities.extend(list(rc))
+
+    return entities

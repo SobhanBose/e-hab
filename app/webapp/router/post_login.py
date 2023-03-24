@@ -20,5 +20,5 @@ def post_login(request: Request, db: Session = Depends(database.get_db)):
     payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
     email = payload.get("sub")
     user = db.query(Users).filter(Users.email == email).first()
-    print(user)
     return templates.TemplateResponse("post-login.html", {"request": request, "user": user})
+
