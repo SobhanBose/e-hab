@@ -21,6 +21,10 @@ def post_login(request: Request, db: Session = Depends(database.get_db)):
     payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
     email = payload.get("sub")
     user = db.query(Users).filter(Users.email == email).first()
+
+    if not user:
+        return templates.TemplateResponse("403.html", {"request": request})
+    
     return templates.TemplateResponse("post-login.html", {"request": request, "user": user})
 
 @router.post('/reg-facilitator', response_class=HTMLResponse)
@@ -30,6 +34,9 @@ def reg_facilitator(request: Request, db: Session = Depends(database.get_db)):
     payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
     email = payload.get("sub")
     user = db.query(Users).filter(Users.email == email).first()
+
+    if not user:
+        return templates.TemplateResponse("403.html", {"request": request})
     
     new_facilitator = Facilitators(username=user.username)
     db.add(new_facilitator)

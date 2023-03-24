@@ -11,10 +11,11 @@ from typing import List
 import geocoder
 from jose import jwt
 
-
 router = APIRouter(include_in_schema=False)
 templates = Jinja2Templates(directory="app\\templates")
 templates.env.globals['URL'] = URL
+
+DIST = 2000
 
 
 @router.get('/search-sg')
@@ -25,11 +26,14 @@ def search_sg(request: Request, db: Session = Depends(get_db)) -> List[responseM
     email = payload.get("sub")
     user = db.query(models.Users).filter(models.Users.email == email).first()
 
+    if not user:
+        return templates.TemplateResponse("403.html", {"request": request})
+
     entities = []
     pos = geocoder.ip("me").latlng
     sg = db.query(models.SupportGroups).all()
     for entity in sg:
-        if helpers.calc_dist(pos, (entity.latitude, entity.longitude)) < 10:
+        if helpers.calc_dist(pos, (entity.latitude, entity.longitude)) < DIST:
             entities.append(entity)
 
     return templates.TemplateResponse("search.html", {"request": request, "entities": entities})
@@ -43,12 +47,15 @@ def search_rc(request: Request, db: Session = Depends(get_db)) -> List[responseM
     email = payload.get("sub")
     user = db.query(models.Users).filter(models.Users.email == email).first()
 
+    if not user:
+        return templates.TemplateResponse("403.html", {"request": request})
+
     entities = []
     rc = db.query(models.RehabCentres).all()
     pos = geocoder.ip("me").latlng
     entities.extend(list(rc))
     for entity in rc:
-        if helpers.calc_dist(pos, (entity.latitude, entity.longitude)) < 10:
+        if helpers.calc_dist(pos, (entity.latitude, entity.longitude)) < DIST:
             entities.append(entity)
 
     return templates.TemplateResponse("search.html", {"request": request, "entities": entities})

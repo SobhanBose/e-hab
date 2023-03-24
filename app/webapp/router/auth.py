@@ -60,9 +60,14 @@ async def register(request: Request, response: Response, db: Session=Depends(get
         return templates.TemplateResponse("user_reg.html", {"request": request, "errors": errors})
     try:
         user = UserModel(username=form.get("username"), email=form.get("email"), password=Hash.hash_pswd(form.get("password")), name=form.get("name"), contact_no=form.get("contact_no"))
+        # print("Created")
         db.add(user)
+        # print("Added")
         db.commit()
+        # print("Commited")
         db.refresh(user)
+        # print("Refreshed")
+        
         return RedirectResponse("/login?msg=Registration successful", status_code=status.HTTP_302_FOUND)
     except:
         errors.append("Something went wrong")

@@ -18,8 +18,14 @@ def add_support_grps(request: Request, db: Session = Depends(database.get_db)):
     payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
     email = payload.get("sub")
     user = db.query(Users).filter(Users.email == email).first()
-    if user:
-        return templates.TemplateResponse("add_sg.html", {"request": request})
+    if not user:
+        return templates.TemplateResponse("403.html", {"request": request})    
+    
+    facilitator = db.query(Facilitators).filter(Facilitators.username == user.username).first()
+    if not facilitator:
+        return templates.TemplateResponse("403.html", {"request": request})
+    
+    return templates.TemplateResponse("add_sg.html", {"request": request})
     
 
 @router.get("/add-rehab_center", response_class=HTMLResponse)
@@ -29,8 +35,14 @@ def add_rehab_center(request: Request, db: Session = Depends(database.get_db)):
     payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
     email = payload.get("sub")
     user = db.query(Users).filter(Users.email == email).first()
-    if user:
-        return templates.TemplateResponse("add_rc.html", {"request": request})
+    if not user:
+        return templates.TemplateResponse("403.html", {"request": request})
+    
+    facilitator = db.query(Facilitators).filter(Facilitators.username == user.username).first()
+    if not facilitator:
+        return templates.TemplateResponse("403.html", {"request": request})
+    
+    return templates.TemplateResponse("add_rc.html", {"request": request})
 
 
 @router.post("/add-support_groups", response_class=HTMLResponse)
@@ -40,7 +52,12 @@ async def add_support_grps(request: Request, db: Session = Depends(database.get_
     payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
     email = payload.get("sub")
     user = db.query(Users).filter(Users.email == email).first()
+    if not user:
+        return templates.TemplateResponse("403.html", {"request": request})
+    
     facilitator = db.query(Facilitators).filter(Facilitators.username == user.username).first()
+    if not facilitator:
+        return templates.TemplateResponse("403.html", {"request": request})
 
     form = await request.form()
 
@@ -62,8 +79,13 @@ async def add_rehab_center(request: Request, db: Session = Depends(database.get_
     payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
     email = payload.get("sub")
     user = db.query(Users).filter(Users.email == email).first()
+    if not user:
+        return templates.TemplateResponse("403.html", {"request": request})
+    
     facilitator = db.query(Facilitators).filter(Facilitators.username == user.username).first()
-
+    if not facilitator:
+        return templates.TemplateResponse("403.html", {"request": request})
+    
     form = await request.form()
 
     new_sg = RehabCentres(name=form.get("name"), contact_email=form.get("email"), contact_no=form.get("contact_no"), facilitator=facilitator.username)
