@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="swidth=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>E-hab</title>
+    <link rel="stylesheet" href="{{url_for('static', path='/styles/post-login.css')}}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Arimo|Signika" rel="stylesheet">
+    <link rel="shortcut icon" href="https://mbtskoudsalg.com/images/diamond-doodle-png.png">
+  </head>
+
+  <body>
+    <header id='home'>
+      <nav class=" transparent ">
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo center">
+            <img src="https://mbtskoudsalg.com/images/diamond-doodle-png.png" alt="logo" height="64" width="64">
+          </a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li class='hvr-underline'><a href="#">Profile</a></li>
+          </ul>
+        </div>
+      </nav>
+    
+      <ul class="sidenav" id="mobile-demo">
+        <li class='hvr-underline'><a href="#">Profile</a></li>
+      </ul>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col s1"></div>
+        <div class="col s10 name-username-banner">
+          <h2>Hi, {{user.name}}!</h2>
+          <h6>@ {{user.username}}</h6>
+        </div>
+        <div class="col s1"></div>
+      </div>
+    
+      <div class="row">
+        <div class="col s1"></div>
+        <div class="col s10 email-banner">
+          <div class="gap">
+            <i class="material-icons">mail</i>
+            <span>{{user.email}}</span>
+          </div>
+        </div>
+        <div class="col s1"></div>
+      </div>
+    
+      <div class="row">
+        <div class="col s1"></div>
+        <div class="col s10 contact-no-banner">
+          <div class="gap">
+            <i class="material-icons">call</i>
+            <span>{{user.contact_no}}</span>
+          </div>
+          <div>
+            <a class="waves-effect waves-light btn-small edit-profile-btn">Edit Profile</a>
+          </div>
+        </div>
+        <div class="col s1"></div>
+      </div>
+      <hr>
+    </div>
+
+    <section id="user-services">
+      <div class="section-intro center">
+        <h4 style="font-weight: bold;" class="subtitle">How can we help you?</h4>
+      </div>
+      <div class="cards">
+        <div class="container">
+          <div class="row">
+
+            <div class="col s12 m6 l4">
+              <div class="card horizontal">
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <h4 class="card-title activator grey-text text-darken-4">Find Support Groups</h4>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light btn-floating"><i class="material-icons left">search</i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card horizontal">
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <h4 class="card-title activator grey-text text-darken-4">Find Rehab Centers</h4>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light btn-floating"><i class="material-icons left">search</i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section id="facilitator-reg">
+      <div class="section-intro center">
+        <h4 style="font-weight: bold;" class="subtitle">Wanna be a facilitator?</h4>
+      </div>
+      <div class="cards">
+        <div class="container">
+          <div class="row">
+            
+            <div class="col s12 m6 l4">
+
+            </div>
+
+            <div class="col s12 m6 l4">
+              <div class="card horizontal">
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <h4 class="card-title activator grey-text text-darken-4">Register as Facilitator</h4>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light btn-floating"><i class="material-icons left">add</i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section id="facilitator-services">
+      <div class="section-intro center">
+        <h4 style="font-weight: bold;" class="subtitle">Already a facilitator?</h4>
+      </div>
+      <div class="cards">
+        <div class="container">
+          <div class="row">
+    
+            <div class="col s12 m6 l4">
+              <div class="card horizontal">
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <h4 class="card-title activator grey-text text-darken-4">Register a Support Groups</h4>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light btn-floating"><i class="material-icons left">add</i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col s12 m6 l4">
+            </div>
+    
+            <div class="col s12 m6 l4">
+              <div class="card horizontal">
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <h4 class="card-title activator grey-text text-darken-4">Register a Rehab Centers</h4>
+                  </div>
+                  <div class="card-action">
+                    <a class="waves-effect waves-light btn-floating"><i class="material-icons left">add</i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    
+    <footer class="black white-text center">
+      <div style="padding:30px 0 20px 0;">
+        <h3>E-hab</h3>
+      </div>
+      <div class="grey darken-4" style="padding:30px 0;">
+        &copy; 2023 E-hab. All rights Reserved.
+      </div>
+    </footer>
+    <!-- script tags -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{url_for('static', path='/scripts/post-login.js')}}"></script>
+  </body>
+
+</html>

@@ -6,6 +6,7 @@ from app.utils.database import get_db
 from app.utils.hash import Hash
 from app.models import Users as UserModel
 from app.JWTtoken import token
+from starlette.datastructures import URL
 
 router = APIRouter(include_in_schema=False)
 templates = Jinja2Templates(directory="app\\templates")
@@ -31,7 +32,9 @@ async def login(request: Request, response: Response, db: Session=Depends(get_db
             data = {"sub": email}
             jwt_token = token.create_access_token(data)
             msg = "Login successful"
-            response = templates.TemplateResponse("login.html", {"request": request, "msg": msg})
+            redirect_url = URL(request.url_for('post_login')).include_query_params()
+            response = RedirectResponse(redirect_url, status_code=status.HTTP_303_SEE_OTHER)
+            # response = templates.TemplateResponse("post-login.html", {"request": request, "msg": msg, "user": user})
             response.set_cookie(key="access_token", value=f"Bearer {jwt_token}", httponly=True)
             
             return response

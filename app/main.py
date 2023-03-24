@@ -17,6 +17,7 @@ from app.search_entities import router as search_entities_router
 from app.webapp.router import auth as webapp_auth_router
 from app.webapp.router import home as webapp_home_router
 from app.webapp.router import search as webapp_search_router
+from app.webapp.router import post_login as webapp_post_login_router
 
 from app.utils import database
 
@@ -34,3 +35,4 @@ app.include_router(search_entities_router.router, tags=["Search Entities"])
 app.include_router(webapp_auth_router.router)
 app.include_router(webapp_home_router.router)
 app.include_router(webapp_search_router.router)
+app.include_router(webapp_post_login_router.router)

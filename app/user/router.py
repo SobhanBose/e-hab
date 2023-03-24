@@ -59,3 +59,10 @@ def get_user_by_username(username: str, db: Session = Depends(get_db)) -> respon
     if not user:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"user {username} not found")
     return user
+
+@router.get("/user/{email}", status_code=status.HTTP_302_FOUND, response_model=responseModels.ShowUser)
+def get_user_by_email(email: str, db: Session = Depends(get_db)) -> responseModels.ShowUser:
+    user = db.query(models.Users).filter(models.Users.email == email).first()
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"user {email} not found")
+    return user
