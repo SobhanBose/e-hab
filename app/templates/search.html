@@ -48,7 +48,7 @@
                                         <p>{{entity['contact_email']}}</p>
                                     </div>
                                     <div class="directions">
-                                        <a href="{{URL(url_for('get_direction')).include_query_params(lat=entity['latitude'], lng=entity['longitude'])}}" class="secondary-content"><i class="medium material-icons">directions</i></a>
+                                        <a href="{{URL(url_for('get_direction')).include_query_params(entity=entity.encode())}}" class="secondary-content"><i class="medium material-icons">directions</i></a>
                                     </div>
                                 </li>
                             {% endfor %}

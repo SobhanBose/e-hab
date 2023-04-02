@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-hab</title>
+    <link rel="stylesheet" href="{{url_for('static', path='/styles/gmaps_search.css')}}">
+    <script src="https://kit.fontawesome.com/a6f061081d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <h1>E-hab</h1>
+               
+            </nav>
+            <div class="row">
+                <div class="header-text">
+                    <h1><span>{{entity["name"]}}</span></h1> <br><br><br><br><br>
+                
+                    <h5><i class="fa-solid fa-envelope"></i> &nbsp &nbsp {{entity["contact_email"]}}</h5>
+                    <h5><i class="fa-solid fa-phone"></i> &nbsp &nbsp {{entity["contact_no"]}}</h5>
+                </div>
+
+                <div class="maps">
+                    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyA31bvLzu_wpQgL2TIpOeqlYxL4r3hYS8o&origin={{pos[0]}}%2C{{pos[1]}}&destination={{entity['latitude']}}%2C{{entity['longitude']}}">
+                    </iframe>
+                    <a class="maps-redirect" href="https://www.google.com/maps/dir/?api=1&origin={{pos[0]}}%2C{{pos[1]}}&destination={{entity['latitude']}}%2C{{entity['longitude']}}">
+                        <button type="submit"
+                            style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px; cursor: pointer;">Open GoogleMaps</button>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+        </div>
+    </div> 
+    <br><br><br>
+    <!-- --------------contact me------------- -->
+    <div id="contact">
+        <div class="container">
+            <div class="copyright">
+                <p>E-hab</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <script>
+
+        var sidemenu = document.getElementById("sidemenu");
+
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+
+    </script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwcwsyGvkiodJJgQ4OQi8baChOp17uBfPolY7XhZAumnW9tSAKeW_FxkrL3HVVcE9h9/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully"
+                    setTimeout(function () {
+                        mssg.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+
+                })
+
+
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+</body>
+
+</html>

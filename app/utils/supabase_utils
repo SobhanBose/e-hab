@@ -1,0 +1,9 @@
+from pydantic import BaseModel
+from typing import ClassVar
+import enum
+
+class Enum(enum.Enum):
+    Users = "Users"
+    Facilitator = "Faciliotators"
+    SupportGroups = "SupportGroups"
+    RehabCentres = "RehabCentres"

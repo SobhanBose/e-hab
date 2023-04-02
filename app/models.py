@@ -1,8 +1,9 @@
 from app.utils.database import Base
-from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, DECIMAL
+from sqlalchemy import Column, String, Integer, DateTime, ForeignKey, DECIMAL, BIGINT
 from sqlalchemy.orm import relationship
 from sqlalchemy_utils import EmailType, JSONType
 import geocoder
+import json
 
 
 class Users(Base):
@@ -12,7 +13,7 @@ class Users(Base):
     password = Column(String, nullable=False)
     name = Column(String, nullable=False)
     email = Column(EmailType, unique=True, nullable=False)
-    contact_no = Column(Integer, unique=True, nullable=False)
+    contact_no = Column(BIGINT, unique=True, nullable=False)
     latitude = Column(DECIMAL, default=geocoder.ip("me").latlng[0])
     longitude = Column(DECIMAL, default=geocoder.ip("me").latlng[1])
 
@@ -53,6 +54,9 @@ class SupportGroups(Base):
     facilitator = Column(String, ForeignKey("facilitators.username"), nullable=False)
 
     sg_facilitator = relationship("Facilitators", back_populates="support_group")
+
+    def encode(self):
+        return json.dumps(dict(name = self.name, contact_email = self.contact_email, contact_no = self.contact_no, latitude = self.latitude, longitude = self.longitude, facilitator = self.facilitator), default=str)
 
 
 class RehabCentres(Base):

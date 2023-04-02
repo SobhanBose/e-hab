@@ -10,10 +10,12 @@ from app import models
 from typing import List
 import geocoder
 from jose import jwt
+import json
 
 router = APIRouter(include_in_schema=False)
 templates = Jinja2Templates(directory="app\\templates")
 templates.env.globals['URL'] = URL
+templates.env.globals['encode'] = json.dumps
 
 DIST = 2000
 

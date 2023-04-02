@@ -1,201 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="swidth=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>E-hab</title>
-    <link rel="stylesheet" href="{{url_for('static', path='/styles/post-login.css')}}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Arimo|Signika" rel="stylesheet">
-    <link rel="shortcut icon" href="https://mbtskoudsalg.com/images/diamond-doodle-png.png">
-  </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>E-hab</title>
+        <link rel="stylesheet" href="{{url_for('static', path='/styles/user-page.css')}}">
+        <script src="https://kit.fontawesome.com/a6f061081d.js" crossorigin="anonymous"></script>
+    </head>
 
-  <body>
-    <header id='home'>
-      <nav class=" transparent ">
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo center">
-            <!-- <img src="https://mbtskoudsalg.com/images/diamond-doodle-png.png" alt="logo" height="64" width="64"> -->
-            <h4>E-hab</h4>
-          </a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li class='hvr-underline'><a href="#">Profile</a></li>
-          </ul>
-        </div>
-      </nav>
-    
-      <ul class="sidenav" id="mobile-demo">
-        <li class='hvr-underline'><a href="#">Profile</a></li>
-      </ul>
-    </header>
-
-    <div class="container">
-      <div class="row">
-        <div class="col s1"></div>
-        <div class="col s10 name-username-banner">
-          <h2>Hi, {{user.name}}!</h2>
-          <h6>@ {{user.username}}</h6>
-        </div>
-        <div class="col s1"></div>
-      </div>
-    
-      <div class="row">
-        <div class="col s1"></div>
-        <div class="col s10 email-banner">
-          <div class="gap">
-            <i class="material-icons">mail</i>
-            <span>{{user.email}}</span>
-          </div>
-        </div>
-        <div class="col s1"></div>
-      </div>
-    
-      <div class="row">
-        <div class="col s1"></div>
-        <div class="col s10 contact-no-banner">
-          <div class="gap">
-            <i class="material-icons">call</i>
-            <span>{{user.contact_no}}</span>
-          </div>
-          <div>
-            <a class="waves-effect waves-light btn-small edit-profile-btn">Edit Profile</a>
-          </div>
-        </div>
-        <div class="col s1"></div>
-      </div>
-      <hr>
-    </div>
-
-    <section id="user-services">
-      <div class="section-intro center">
-        <h4 style="font-weight: bold;" class="subtitle">How can we help you?</h4>
-      </div>
-      <div class="cards">
-        <div class="container">
-          <div class="row">
-
-            <div class="col s12 m6 l4">
-              <div class="card horizontal">
-                <div class="card-stacked">
-                  <div class="card-content">
-                    <h4 class="card-title activator grey-text text-darken-4">Find Support Groups</h4>
-                  </div>
-                  <div class="card-action">
-                    <a href="{{url_for('search_sg')}}" class="waves-effect waves-light btn-floating"><i class="material-icons left">search</i></a>
-                  </div>
+    <body>
+        <div id="header">
+            <div class="container">
+                <nav>
+                    <!-- <img src="{{url_for('static', path='/assets/thumbnail12.png')}}" class="logo"> -->
+                    <h1>E-hab</h1>
+                    <ul id="sidemenu">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#facilitator">Register</a></li>
+                        <!-- <li><a href="#info">Info</a></li> -->
+                        <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
+                    </ul>
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                </nav>
+                <div class="header-text">
+                    <h1>Hi, <span> {{user.name}}</span>!</h1> <br><br><br><br><br>
+                    <h4><i class="fa-solid fa-user user-details"></i> <span class="user-details">&nbsp &nbsp @{{user.username}}</span></h4>
+                    <h5><i class="fa-solid fa-envelope user-details"></i> <span class="user-details">&nbsp &nbsp {{user.email}}</span> </h5>
+                    <h5><i class="fa-solid fa-phone user-details"></i> <span class="user-details">&nbsp &nbsp {{user.contact_no}}</span> </h5>
                 </div>
-              </div>
             </div>
-
-            <div class="col s12 m6 l4">
-            </div>
-
-            <div class="col s12 m6 l4">
-              <div class="card horizontal">
-                <div class="card-stacked">
-                  <div class="card-content">
-                    <h4 class="card-title activator grey-text text-darken-4">Find Rehab Centers</h4>
-                  </div>
-                  <div class="card-action">
-                    <a href="{{url_for('search_rc')}}" class="waves-effect waves-light btn-floating"><i class="material-icons left">search</i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-    </section>
+        <!-- --------------about----------------- -->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="{{url_for('static', path='/assets/about us icon.png')}}">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">About Us</h1>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi nemo voluptate praesentium
+                            repellat atque ducimus voluptas quod. Quia dicta officia minima dignissimos. Quibusdam enim quae
+                            ducimus temporibus, quas commodi illum nesciunt. Quisquam quos, consequuntur omnis sint quod
+                            maxime autem laborum eius, voluptate voluptatibus esse dolores distinctio exercitationem
+                            obcaecati culpa iure ab voluptatum neque quidem vero placeat. Tempora, debitis doloremque
+                            tempore error culpa odit ducimus unde qui quos quam sed rem, nesciunt voluptate asperiores.
+                            Fugiat, esse iure ex hic cupiditate ab autem praesentium at alias ad quos ut. Nulla iste itaque
+                            blanditiis nostrum, commodi dolorum aliquid adipisci vitae, voluptas fugiat magni!
+                        </p>
 
-    <section id="facilitator-reg">
-      <div class="section-intro center">
-        <h4 style="font-weight: bold;" class="subtitle">Wanna be a facilitator?</h4>
-      </div>
-      <div class="cards">
-        <div class="container">
-          <div class="row">
-            
-            <div class="col s12 m6 l4">
-
-            </div>
-
-            <div class="col s12 m6 l4">
-              <div class="card horizontal">
-                <div class="card-stacked">
-                  <div class="card-content">
-                    <h4 class="card-title activator grey-text text-darken-4">Register as Facilitator</h4>
-                  </div>
-                  <div class="card-action">
-                    <form action="/reg-facilitator" method="POST">
-                      <button type="submit" class="waves-effect waves-light btn-floating" style="background-color: #26A69A; padding: 0; border-radius: 25px; height: 40x; width: 40px;"><i class="material-icons left">add</i></button>
-                    </form>
-                  </div>
+                    </div>
                 </div>
-              </div>
             </div>
-
-            <div class="col s12 m6 l4">
-            </div>
-          </div>
         </div>
-    </section>
-
-    <section id="facilitator-services">
-      <div class="section-intro center">
-        <h4 style="font-weight: bold;" class="subtitle">Already a facilitator?</h4>
-      </div>
-      <div class="cards">
-        <div class="container">
-          <div class="row">
-    
-            <div class="col s12 m6 l4">
-              <div class="card horizontal">
-                <div class="card-stacked">
-                  <div class="card-content">
-                    <h4 class="card-title activator grey-text text-darken-4">Register a Support Groups</h4>
-                  </div>
-                  <div class="card-action">
-                    <a href="{{url_for('add_support_grps')}}" class="waves-effect waves-light btn-floating"><i class="material-icons left">add</i></a>
-                  </div>
+        <!-- ----------------services-------------- -->
+        <div id="services">
+            <div class="container">
+                <h1 class="sub-title">Our Services</h1>
+                <div class="services-list">
+                    <div>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h2>Find Support Groups</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolore libero expedita
+                            asperiores adipisci? Iusto minus mollitia veritatis ad impedit accusamus asperiores eius eaque,
+                            ipsa facilis laudantium, temporibus, aliquam culpa.</p>
+                        <a href="{{url_for('search_sg')}}">
+                            <button type="submit"
+                                style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px;">Search</button>
+                        </a>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h2>Find Rehab Centres</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolore libero expedita
+                            asperiores adipisci? Iusto minus mollitia veritatis ad impedit accusamus asperiores eius eaque,
+                            ipsa facilis laudantium, temporibus, aliquam culpa.</p>
+                        <a href="{{url_for('search_rc')}}">
+                            <button type="submit" style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px;">Search</button>
+                        </a>
+                    </div>
                 </div>
-              </div>
             </div>
-    
-            <div class="col s12 m6 l4">
-            </div>
-    
-            <div class="col s12 m6 l4">
-              <div class="card horizontal">
-                <div class="card-stacked">
-                  <div class="card-content">
-                    <h4 class="card-title activator grey-text text-darken-4">Register a Rehab Centers</h4>
-                  </div>
-                  <div class="card-action">
-                    <a href="{{url_for('add_rehab_center')}}" class="waves-effect waves-light btn-floating"><i class="material-icons left">add</i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-    </section>
-    
-    <footer class="black white-text center">
-      <div style="padding:30px 0 20px 0;">
-        <h3>E-hab</h3>
-      </div>
-      <div class="grey darken-4" style="padding:30px 0;">
-        &copy; 2023 E-hab. All rights Reserved.
-      </div>
-    </footer>
-    <!-- script tags -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{url_for('static', path='/scripts/post-login.js')}}"></script>
-  </body>
+        <!-- -------------------------wanna be a facilitator--------------- -->
+        <div id="facilitator">
+            <div class="container">
+                <h1 class="sub-title">Wanna be a facilitator?</h1>
+                <div class="facilitator-list">
+                    <div>
+                        <i class="fa-solid fa-user-plus"></i>
+                        <h2>Register as a facilitator</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolore libero expedita
+                            asperiores adipisci? Iusto minus mollitia veritatis ad impedit accusamus asperiores eius eaque,
+                            ipsa facilis laudantium, temporibus, aliquam culpa.</p>
+                        <form action="/reg-facilitator" method="POST">
+                            <button type="submit" style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px;">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- -----------------Already a facilitator------------ -->
+        <div id="Afacilitator">
+            <div class="container">
+                <h1 class="sub-title">Already a facilitator?</h1>
+                <div class="Afacilitator-list">
+                    <div>
+                        <i class="fa-solid fa-user-plus"></i>
+                        <h2>Register for a Support Group</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolore libero expedita
+                            asperiores adipisci? Iusto minus mollitia veritatis ad impedit accusamus asperiores eius eaque,
+                            ipsa facilis laudantium, temporibus, aliquam culpa.</p>
+                        <a href="{{url_for('add_support_grps')}}">
+                            <button type="submit"
+                                style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px;">Register support group</button>
+                        </a>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-user-plus"></i>
+                        <h2>Register for a Rehab Center</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolore libero expedita
+                            asperiores adipisci? Iusto minus mollitia veritatis ad impedit accusamus asperiores eius eaque,
+                            ipsa facilis laudantium, temporibus, aliquam culpa.</p>
+                        <a href="{{url_for('add_rehab_center')}}">
+                            <button type="submit"
+                                style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px;">Register rehab center</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                
+            </div>
+        </div> 
+        <br><br><br>
+        <!-- --------------contact me------------- -->
+        <div id="contact">
+            <div class="container">
+                <div class="copyright">
+                    <p>E-hab</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+
+            function opentab(tabname) {
+                for (tablink of tablinks) {
+                    tablink.classList.remove("active-link");
+                }
+                for (tabcontent of tabcontents) {
+                    tabcontent.classList.remove("active-tab");
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tabname).classList.add("active-tab");
+            }
+        </script>
+
+        <script>
+
+            var sidemenu = document.getElementById("sidemenu");
+
+            function openmenu() {
+                sidemenu.style.right = "0";
+            }
+            function closemenu() {
+                sidemenu.style.right = "-200px";
+            }
+
+        </script>
+
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwcwsyGvkiodJJgQ4OQi8baChOp17uBfPolY7XhZAumnW9tSAKeW_FxkrL3HVVcE9h9/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById("msg")
+
+            form.addEventListener('submit', e => {
+                e.preventDefault()
+                fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                    .then(response => {
+                        msg.innerHTML = "Message sent successfully"
+                        setTimeout(function () {
+                            mssg.innerHTML = ""
+                        }, 5000)
+                        form.reset()
+
+                    })
+
+
+                    .catch(error => console.error('Error!', error.message))
+            })
+        </script>
+
+    </body>
 
 </html>
