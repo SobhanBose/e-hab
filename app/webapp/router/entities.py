@@ -7,6 +7,7 @@ from app.models import Users, Facilitators, RehabCentres, SupportGroups
 from jose import jwt
 from fastapi.templating import Jinja2Templates
 from starlette.datastructures import URL
+import requests
 
 router = APIRouter(include_in_schema=False)
 templates = Jinja2Templates(directory="app\\templates")
@@ -61,7 +62,12 @@ async def add_support_grps(request: Request, db: Session = Depends(database.get_
 
     form = await request.form()
 
-    new_sg = SupportGroups(name=form.get("name"), contact_email=form.get("email"), contact_no=form.get("contact_no"), facilitator=facilitator.username)
+    address = f"{form.get('adr1').replace(' ', '%20').replace(',', '%2C')}%2C{form.get('adr2').replace(' ', '%20').replace(',', '%2C')}%2C{form.get('city').replace(' ', '%20')}%2C{form.get('state').replace(' ', '%20')}%2C{form.get('country').replace(' ', '%20')}"
+    loc = requests.get(f"https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyA31bvLzu_wpQgL2TIpOeqlYxL4r3hYS8o&address={address}").json()
+    lat = loc['results'][0]['geometry']['location']['lat']
+    lng = loc['results'][0]['geometry']['location']['lng']
+
+    new_sg = SupportGroups(name=form.get("name"), contact_email=form.get("email"), contact_no=form.get("contact_no"), latitude=lat, longitude=lng, facilitator=facilitator.username)
     db.add(new_sg)
     db.commit()
     db.refresh(new_sg)
@@ -88,7 +94,12 @@ async def add_rehab_center(request: Request, db: Session = Depends(database.get_
     
     form = await request.form()
 
-    new_sg = RehabCentres(name=form.get("name"), contact_email=form.get("email"), contact_no=form.get("contact_no"), facilitator=facilitator.username)
+    address = f"{form.get('adr1').replace(' ', '%20').replace(',', '%2C')}%2C{form.get('adr2').replace(' ', '%20').replace(',', '%2C')}%2C{form.get('city').replace(' ', '%20')}%2C{form.get('state').replace(' ', '%20')}%2C{form.get('country').replace(' ', '%20')}"
+    loc = requests.get(f"https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyA31bvLzu_wpQgL2TIpOeqlYxL4r3hYS8o&address={address}").json()
+    lat = loc['results'][0]['geometry']['location']['lat']
+    lng = loc['results'][0]['geometry']['location']['lng']
+
+    new_sg = RehabCentres(name=form.get("name"), contact_email=form.get("email"), contact_no=form.get("contact_no"), latitude=lat, longitude=lng, facilitator=facilitator.username)
     db.add(new_sg)
     db.commit()
     db.refresh(new_sg)
