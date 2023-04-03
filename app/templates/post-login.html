@@ -43,15 +43,14 @@
                         <img src="{{url_for('static', path='/assets/about us icon.png')}}">
                     </div>
                     <div class="about-col-2">
-                        <h1 class="sub-title">About Us</h1>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi nemo voluptate praesentium
-                            repellat atque ducimus voluptas quod. Quia dicta officia minima dignissimos. Quibusdam enim quae
-                            ducimus temporibus, quas commodi illum nesciunt. Quisquam quos, consequuntur omnis sint quod
-                            maxime autem laborum eius, voluptate voluptatibus esse dolores distinctio exercitationem
-                            obcaecati culpa iure ab voluptatum neque quidem vero placeat. Tempora, debitis doloremque
-                            tempore error culpa odit ducimus unde qui quos quam sed rem, nesciunt voluptate asperiores.
-                            Fugiat, esse iure ex hic cupiditate ab autem praesentium at alias ad quos ut. Nulla iste itaque
-                            blanditiis nostrum, commodi dolorum aliquid adipisci vitae, voluptas fugiat magni!
+                        <h1 class="sub-title">About Us</h1><br>
+                        <p>At E-HAB, we also understand that recovery is a unique and personal journey, and we respect each individual's path to
+                        healing. Our team is committed to providing a safe and supportive space where you can access the resources and support
+                        you need to thrive.
+                        <br><br>
+                        Our platform offers a variety of features and resources, including a community forum, educational materials, access to
+                        trained professionals, and personalized support. We believe in the power of peer support and community, and we encourage
+                        you to connect with others who are on a similar path to recovery.
                         </p>
 
                     </div>
@@ -66,22 +65,22 @@
                     <div>
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <h2>Find Support Groups</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolore libero expedita
-                            asperiores adipisci? Iusto minus mollitia veritatis ad impedit accusamus asperiores eius eaque,
-                            ipsa facilis laudantium, temporibus, aliquam culpa.</p>
+                        <p>Support groups can be beneficial for individuals facing a variety of issues, such as addiction, mental health concerns,
+                        chronic illness, grief and loss, or other life challenges. In these groups, participants can feel heard, understood, and
+                        validated by others who have had similar experiences.</p>
                         <a href="{{url_for('search_sg')}}">
                             <button type="submit"
-                                style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px;">Search</button>
+                                style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px; cursor: pointer;">Search</button>
                         </a>
                     </div>
                     <div>
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <h2>Find Rehab Centres</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolore libero expedita
-                            asperiores adipisci? Iusto minus mollitia veritatis ad impedit accusamus asperiores eius eaque,
-                            ipsa facilis laudantium, temporibus, aliquam culpa.</p>
+                        <p>Rehab centers are facilities that provide comprehensive treatment programs for individuals struggling with addiction and
+                        substance abuse. These programs typically include a combination of detoxification, therapy, counseling,
+                        medication-assisted treatment, and aftercare support.</p>
                         <a href="{{url_for('search_rc')}}">
-                            <button type="submit" style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px;">Search</button>
+                            <button type="submit" style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px; cursor: pointer;">Search</button>
                         </a>
                     </div>
                 </div>
@@ -96,11 +95,9 @@
                     <div>
                         <i class="fa-solid fa-user-plus"></i>
                         <h2>Register as a facilitator</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolore libero expedita
-                            asperiores adipisci? Iusto minus mollitia veritatis ad impedit accusamus asperiores eius eaque,
-                            ipsa facilis laudantium, temporibus, aliquam culpa.</p>
+                        <p>Want to list a Support Group or a Rehab Centre? You have to  be a facilitator to do so...</p>
                         <form action="/reg-facilitator" method="POST">
-                            <button type="submit" style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px;">Register</button>
+                            <button type="submit" style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px; cursor: pointer;">Register</button>
                         </form>
                     </div>
                 </div>
@@ -116,23 +113,19 @@
                     <div>
                         <i class="fa-solid fa-user-plus"></i>
                         <h2>Register for a Support Group</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolore libero expedita
-                            asperiores adipisci? Iusto minus mollitia veritatis ad impedit accusamus asperiores eius eaque,
-                            ipsa facilis laudantium, temporibus, aliquam culpa.</p>
+                        <p>Register your Support Group so that other people can join it.</p>
                         <a href="{{url_for('add_support_grps')}}">
                             <button type="submit"
-                                style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px;">Register support group</button>
+                                style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px; cursor: pointer;">Register support group</button>
                         </a>
                     </div>
                     <div>
                         <i class="fa-solid fa-user-plus"></i>
                         <h2>Register for a Rehab Center</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque dolore libero expedita
-                            asperiores adipisci? Iusto minus mollitia veritatis ad impedit accusamus asperiores eius eaque,
-                            ipsa facilis laudantium, temporibus, aliquam culpa.</p>
+                        <p>Register your Rehab Center to help others.</p>
                         <a href="{{url_for('add_rehab_center')}}">
                             <button type="submit"
-                                style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px;">Register rehab center</button>
+                                style="margin-top: 2em; background-color: transparent; color: white; padding: 1em; border-radius: 25px; cursor: pointer;">Register rehab center</button>
                         </a>
                     </div>
                 </div>
