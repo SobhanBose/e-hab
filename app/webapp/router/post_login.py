@@ -25,7 +25,13 @@ def post_login(request: Request, db: Session = Depends(database.get_db)):
     if not user:
         return templates.TemplateResponse("403.html", {"request": request})
     
-    return templates.TemplateResponse("post-login.html", {"request": request, "user": user})
+    facilitator = db.query(Facilitators).filter(Facilitators.username == user.username).first()
+    if not facilitator:
+        is_facilitator = False
+    else:
+        is_facilitator = True
+    
+    return templates.TemplateResponse("post-login.html", {"request": request, "user": user, "is_facilitator": is_facilitator})
 
 @router.post('/reg-facilitator', response_class=HTMLResponse)
 def reg_facilitator(request: Request, db: Session = Depends(database.get_db)):

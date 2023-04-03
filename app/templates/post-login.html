@@ -21,6 +21,7 @@
                         <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#facilitator">Register</a></li>
+                        <li><a href="{{url_for('logout')}}">Logout</a></li>
                         <!-- <li><a href="#info">Info</a></li> -->
                         <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
                     </ul>
@@ -87,6 +88,7 @@
             </div>
         </div>
         <!-- -------------------------wanna be a facilitator--------------- -->
+        {% if not is_facilitator %}
         <div id="facilitator">
             <div class="container">
                 <h1 class="sub-title">Wanna be a facilitator?</h1>
@@ -104,7 +106,9 @@
                 </div>
             </div>
         </div>
+        {% endif %}
         <!-- -----------------Already a facilitator------------ -->
+        {% if is_facilitator %}
         <div id="Afacilitator">
             <div class="container">
                 <h1 class="sub-title">Already a facilitator?</h1>
@@ -136,7 +140,8 @@
         </div>
                 
             </div>
-        </div> 
+        </div>
+        {% endif %}
         <br><br><br>
         <!-- --------------contact me------------- -->
         <div id="contact">
