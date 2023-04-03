@@ -77,3 +77,6 @@ class RehabCentres(Base):
     facilitator = Column(String, ForeignKey("facilitators.username"), nullable=False)
 
     rc_facilitator = relationship("Facilitators", back_populates="rehab_centre")
+
+    def encode(self):
+        return json.dumps(dict(name = self.name, contact_email = self.contact_email, contact_no = self.contact_no, latitude = self.latitude, longitude = self.longitude, facilitator = self.facilitator), default=str)
